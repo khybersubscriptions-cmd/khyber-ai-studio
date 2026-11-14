@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Image Generator | Khyber AI Studio</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#080d1c;color:#f4f6ff}
+header{padding:22px 7%;border-bottom:1px solid #202a42;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:bold}
+.logo span{color:#9987ff}
+header a{color:#b8c1d8;text-decoration:none}
+main{max-width:850px;margin:55px auto;padding:20px}
+h1{text-align:center;font-size:36px;margin-bottom:12px}
+.subtitle{text-align:center;color:#aab4ca;margin-bottom:38px;line-height:1.6}
+.panel{background:#111a30;border:1px solid #263451;border-radius:16px;padding:28px}
+label{display:block;font-weight:bold;margin:20px 0 10px}
+textarea,select{width:100%;padding:15px;background:#080f20;color:white;border:1px solid #344361;border-radius:9px;font-size:15px}
+textarea{height:125px;resize:vertical}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+button{width:100%;padding:16px;margin-top:28px;border:0;border-radius:9px;background:linear-gradient(90deg,#7258ef,#24a9dc);color:white;font-size:16px;font-weight:bold;cursor:pointer}
+.preview{margin-top:28px;border:1px dashed #43516e;border-radius:12px;min-height:210px;display:flex;align-items:center;justify-content:center;text-align:center;color:#8f9bb5;padding:20px}
+.note{font-size:12px;color:#8793ad;margin-top:15px;line-height:1.5}
+@media(max-width:600px){.grid{grid-template-columns:1fr}h1{font-size:28px}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">KHYBER <span>AI STUDIO</span></div>
+<a href="index.html">← Back to Home</a>
+</header>
+<main>
+<h1>AI Image Generator</h1>
+<p class="subtitle">Transform your imagination into beautiful images using artificial intelligence.</p>
+<div class="panel">
+<label for="prompt">Describe Your Image</label>
+<textarea id="prompt" placeholder="Example: A beautiful mountain village in northern Pakistan at sunset, cinematic photography..."></textarea>
+<div class="grid">
+<div>
+<label for="style">Choose Image Style</label>
+<select id="style">
+<option>Realistic Photography</option>
+<option>Cinematic</option>
+<option>Digital Art</option>
+<option>Anime</option>
+<option>3D Render</option>
+<option>Oil Painting</option>
+</select>
+</div>
+<div>
+<label for="size">Image Dimensions</label>
+<select id="size">
+<option>Square (1:1)</option>
+<option>Landscape (16:9)</option>
+<option>Portrait (9:16)</option>
+</select>
+</div>
+</div>
+<button onclick="generate()">Generate Image</button>
+<div class="preview" id="preview">Your generated image will appear here.</div>
+<p class="note">AI image generation will be connected in the next development stage. This is currently the interface preview.</p>
+</div>
+</main>
+<script>
+function generate(){
+const prompt=document.getElementById('prompt').value.trim();
+if(!prompt){alert('Please describe the image you want to create.');return;}
+document.getElementById('preview').innerHTML='Your request is ready. AI generation service will be connected soon.';
+}
+</script>
+</body>
+</html>
