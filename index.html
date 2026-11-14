@@ -22,7 +22,13 @@ h1 span{color:#9987ff}
 .tool h2{font-size:20px;margin:20px 0 10px}
 .tool p{font-size:14px;color:#aab4ca;line-height:1.6}
 .tool a{display:inline-block;margin-top:20px;color:#a99aff;text-decoration:none;font-weight:bold;font-size:14px}
-  .tool a{position:relative;z-index:10;cursor:pointer}
+  .tool a{
+position:relative;
+z-index:9999;
+display:inline-block;
+cursor:pointer;
+pointer-events:auto;
+}
 .section{text-align:center;color:#8793ad;font-size:13px;letter-spacing:2px;margin-bottom:25px}
 footer{text-align:center;padding:30px;border-top:1px solid #202a42;color:#7e8ba5;font-size:13px}
 @media(max-width:700px){
