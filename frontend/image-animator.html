@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Animator | Khyber AI Studio</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#080d1c;color:#f4f6ff}
+header{padding:22px 7%;border-bottom:1px solid #202a42;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:bold}
+.logo span{color:#9987ff}
+header a{color:#b8c1d8;text-decoration:none}
+main{max-width:850px;margin:55px auto;padding:20px}
+h1{text-align:center;font-size:36px;margin-bottom:12px}
+.subtitle{text-align:center;color:#aab4ca;margin-bottom:38px;line-height:1.6}
+.panel{background:#111a30;border:1px solid #263451;border-radius:16px;padding:28px}
+label{display:block;font-weight:bold;margin:20px 0 10px}
+textarea,select{width:100%;padding:15px;background:#080f20;color:white;border:1px solid #344361;border-radius:9px;font-size:15px}
+textarea{height:110px;resize:vertical}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.upload{border:1px dashed #566789;padding:28px;text-align:center;border-radius:12px;color:#b8c1d8}
+.upload input{display:block;margin:15px auto;max-width:100%}
+#imagePreview{max-width:100%;max-height:300px;border-radius:12px;margin-top:18px;display:none}
+button{width:100%;padding:16px;margin-top:28px;border:0;border-radius:9px;background:linear-gradient(90deg,#7258ef,#24a9dc);color:white;font-size:16px;font-weight:bold;cursor:pointer}
+.preview{margin-top:28px;border:1px dashed #43516e;border-radius:12px;min-height:160px;display:flex;align-items:center;justify-content:center;text-align:center;color:#8f9bb5;padding:20px}
+.note{font-size:12px;color:#8793ad;margin-top:15px;line-height:1.5}
+@media(max-width:600px){.grid{grid-template-columns:1fr}h1{font-size:28px}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">KHYBER <span>AI STUDIO</span></div>
+<a href="index.html">← Back to Home</a>
+</header>
+<main>
+<h1>Image Animator</h1>
+<p class="subtitle">Bring your still images to life with AI-powered motion.</p>
+<div class="panel">
+<label>Upload Your Image</label>
+<div class="upload">
+Select an image from your device
+<input type="file" id="imageInput" accept="image/*">
+<img id="imagePreview" alt="Selected image preview">
+</div>
+
+<label for="prompt">Describe the Animation</label>
+<textarea id="prompt" placeholder="Example: Make the river flow gently, clouds move slowly and trees sway in the breeze..."></textarea>
+
+<div class="grid">
+<div>
+<label for="motion">Motion Style</label>
+<select id="motion">
+<option>Natural Movement</option>
+<option>Cinematic Camera Motion</option>
+<option>Zoom In</option>
+<option>Zoom Out</option>
+<option>Pan Left</option>
+<option>Pan Right</option>
+</select>
+</div>
+<div>
+<label for="duration">Video Duration</label>
+<select id="duration">
+<option>5 Seconds</option>
+<option>10 Seconds</option>
+</select>
+</div>
+</div>
+
+<button onclick="animateImage()">Animate Image</button>
+<div class="preview" id="result">Your animated video will appear here.</div>
+<p class="note">Image animation service will be connected in a later development stage. This is currently an interface preview.</p>
+</div>
+</main>
+<script>
+const input=document.getElementById('imageInput');
+input.addEventListener('change',function(){
+const file=this.files[0];
+if(file){
+const preview=document.getElementById('imagePreview');
+preview.src=URL.createObjectURL(file);
+preview.style.display='block';
+}
+});
+function animateImage(){
+if(!input.files.length){
+alert('Please upload an image first.');
+return;
+}
+if(!document.getElementById('prompt').value.trim()){
+alert('Please describe the animation.');
+return;
+}
+document.getElementById('result').textContent='Your animation request is ready. AI animation service will be connected soon.';
+}
+</script>
+</body>
+</html>
