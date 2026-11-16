@@ -95,8 +95,8 @@ async function generate() {
                 },
                 body: JSON.stringify({
                     prompt: prompt,
-                    width: 512,
-                    height: 512
+                    width: Number(document.getElementById('resolution').value),
+height: Number(document.getElementById('resolution').value)
                 })
             }
         );
