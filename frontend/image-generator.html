@@ -23,6 +23,38 @@ button{width:100%;padding:16px;margin-top:28px;border:0;border-radius:9px;backgr
 .preview{margin-top:28px;border:1px dashed #43516e;border-radius:12px;min-height:210px;display:flex;align-items:center;justify-content:center;text-align:center;color:#8f9bb5;padding:20px}
 .note{font-size:12px;color:#8793ad;margin-top:15px;line-height:1.5}
 @media(max-width:600px){.grid{grid-template-columns:1fr}h1{font-size:28px}}
+    .loading-box {
+    text-align: center;
+    padding: 35px 15px;
+}
+
+.spinner {
+    width: 45px;
+    height: 45px;
+    border: 5px solid #dbe3f0;
+    border-top: 5px solid #2563eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 18px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-box p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.loading-box small {
+    color: #888;
+}
 </style>
 </head>
 <body>
