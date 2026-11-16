@@ -74,10 +74,13 @@ button{width:100%;padding:16px;margin-top:28px;border:0;border-radius:9px;backgr
 </main>
 <script>
 
+
 async function generate() {
     const prompt = document.getElementById('prompt').value.trim();
     const preview = document.getElementById('preview');
     const button = document.querySelector('button[onclick="generate()"]');
+    const downloadLink = document.getElementById('downloadImage');
+    const resolution = Number(document.getElementById('resolution').value);
 
     if (!prompt) {
         alert('Please describe the image you want to create.');
@@ -87,6 +90,9 @@ async function generate() {
     button.disabled = true;
     button.innerText = 'Generating...';
     preview.innerHTML = 'Please wait. Creating your image...';
+
+    downloadLink.style.display = 'none';
+    downloadLink.removeAttribute('href');
 
     try {
         const response = await fetch(
@@ -98,8 +104,8 @@ async function generate() {
                 },
                 body: JSON.stringify({
                     prompt: prompt,
-                    width: Number(document.getElementById('resolution').value),
-height: Number(document.getElementById('resolution').value)
+                    width: resolution,
+                    height: resolution
                 })
             }
         );
@@ -118,13 +124,14 @@ height: Number(document.getElementById('resolution').value)
 
         const img = document.createElement('img');
         img.src = 'data:image/png;base64,' + data.image;
-        const downloadLink = document.getElementById('downloadImage');
-downloadLink.href = img.src;
-downloadLink.style.display = 'inline-block';
         img.style.width = '100%';
         img.style.borderRadius = '10px';
 
         preview.appendChild(img);
+
+        downloadLink.href = img.src;
+        downloadLink.download = 'khyber-ai-generated.png';
+        downloadLink.style.display = 'inline-block';
 
     } catch (error) {
         preview.innerText = 'Error: ' + error.message;
@@ -133,6 +140,7 @@ downloadLink.style.display = 'inline-block';
     button.disabled = false;
     button.innerText = 'Generate Image';
 }
+
 
 </script>
 </body>
