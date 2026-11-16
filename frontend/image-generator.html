@@ -89,7 +89,13 @@ async function generate() {
 
     button.disabled = true;
     button.innerText = 'Generating...';
-    preview.innerHTML = 'Please wait. Creating your image...';
+    preview.innerHTML = `
+    <div class="loading-box">
+        <div class="spinner"></div>
+        <p>Creating your image...</p>
+        <small>Please wait while Khyber AI Studio works its magic.</small>
+    </div>
+`;
 
     downloadLink.style.display = 'none';
     downloadLink.removeAttribute('href');
