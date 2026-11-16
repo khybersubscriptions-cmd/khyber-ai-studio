@@ -66,6 +66,9 @@ button{width:100%;padding:16px;margin-top:28px;border:0;border-radius:9px;backgr
 </div>
 <button onclick="generate()">Generate Image</button>
 <div class="preview" id="preview">Your generated image will appear here.</div>
+    <a id="downloadImage" style="display:none;" download="khyber-ai-generated.png">
+    <button type="button">Download Image</button>
+</a>
 <p class="note">AI image generation.</p>
 </div>
 </main>
@@ -115,6 +118,9 @@ height: Number(document.getElementById('resolution').value)
 
         const img = document.createElement('img');
         img.src = 'data:image/png;base64,' + data.image;
+        const downloadLink = document.getElementById('downloadImage');
+downloadLink.href = img.src;
+downloadLink.style.display = 'inline-block';
         img.style.width = '100%';
         img.style.borderRadius = '10px';
 
